@@ -25,9 +25,9 @@
   },
   {
     "name": "Tuan Le",
-    "portrait": "IMAGE_PATH",
-    "description": "DESCRIPTION",
-    "github": "GITHUB_LINK"
+    "portrait": "./team/portraits/TuanLe.jpg",
+    "description": "./team/descriptions/TuanLe.json",
+    "github": "https://github.com/tle28"
   },
   {
     "name": "Alexander Nunez",
