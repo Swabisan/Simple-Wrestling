@@ -1,6 +1,16 @@
 const express = require('express');
 const router  = express.Router();
 
+// Tournament Name
+// Date
+// Level
+// Style
+// Location
+// Tournament Flier
+// Tournament Logos
+// Number of Gyms
+// Number of Mats
+/*
 router.get('/getHostPage', function (req, res) {
   let body ={
     TournamentName:'joe',
@@ -14,16 +24,6 @@ router.get('/getHostPage', function (req, res) {
   }
   res.json(body);
 })
-
-// Tournament Name
-// Date
-// Level
-// Style
-// Location
-// Tournament Flier
-// Tournament Logos
-// Number of Gyms
-// Number of Mats
 
 router.post('/postHostPage', function (req,res){
   let body ={
@@ -39,5 +39,37 @@ router.post('/postHostPage', function (req,res){
   }
   res.json(body);
 })
+*/
+
+/*
+tournamentname: '',
+date: '',
+level: '',
+style: '',
+location: '',
+tournamentflier: '',
+tournamentlogos: '',
+numberofgyms: '',
+numberofmats: '',
+*/
+router.get('/getHostPage', (req, res) => {
+  res.send({ express: 'testing Host a Tournament' });
+});
+
+router.post('/postHostPage', (req, res) => {
+  console.log(req.body);
+  const tournamentname= req.body.tournamentname;
+  const date= req.body.date;
+  const level= req.body.level;
+  const style= req.body.style;
+  const location= req.body.location;
+  const tournamentflier= req.body.tournamentflier;
+  const tournamentlogos= req.body.tournamentlogos;
+  const numberofgyms= req.body.numberofgyms;
+  const numberofmats= req.body.numberofmats;
+  res.send(
+    `I received your POST request. This is what you sent me: `,
+  );
+});
 
 module.exports = router;

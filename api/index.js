@@ -6,6 +6,8 @@ const database = require("./db/");
 const endpoints = require("./endpoints");
 const passport = require("passport");
 
+const hosttournament = require("./endpoints/host");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -14,9 +16,10 @@ passport.use(passport.session());
 
 //app.use( cookieParse('secure cookeie'));
 app.use("/api", endpoints);
+app.use("/host", hosttournament);
+
 
 //error handles
-
 app.use(function(req, res, next) {
   let err = new Error("Not Found");
   err.status = 404;
