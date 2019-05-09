@@ -8,6 +8,7 @@ const Pool = require("pg").Pool;
 //   password: "wrestle123",
 //   port: 5432
 // });
+/*
 const pool = new Pool({
   user: 'swabisan',
   host: 'localhost',
@@ -15,6 +16,7 @@ const pool = new Pool({
   password: 'swabisan',
   port: 5432,
 })
+*/
 
 
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
@@ -80,6 +82,44 @@ const deleteWrestler = (request, response) => {
   });
 };
 
+
+
+
+
+
+const mysql = require('mysql');
+const pool = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'test',
+  database: 'wrestlingapp',
+  port: 3306,
+});
+
+const createHostTournaments = (request, response) => {
+  console.log('request.tournament: ',request);
+  pool.query(
+    queries.CREATE_HOST_TOURNAMENT, request, (err, res) => {
+      if(err) throw err;
+      console.log('Last insert ID:', res.insertId);
+    });
+  };
+
+const showHostTournaments = (request, response) => {
+  //test at   http://localhost:5000/host/getHostPage
+  pool.query(queries.SHOW_HOST_TOURNAMENT,(error, results) => {
+      if (error) {throw error;}
+      console.log('Data received from Db:\n');
+      console.log(results);
+    }
+  );
+};
+
+
+
+
+
+
 const getOnebyEmai = item => {
   const email = item.email;
   console.log(email);
@@ -94,5 +134,7 @@ module.exports = {
   addWrestler,
   deleteCoach,
   deleteAdmin,
-  deleteWrestler
+  deleteWrestler,
+  createHostTournaments,
+  showHostTournaments
 };

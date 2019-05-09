@@ -1,0 +1,8 @@
+npm install -g npx
+npx create-react-app test-client
+npm i nodemon -g
+yarn
+
+"proxy": "http://localhost:5000/",
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'

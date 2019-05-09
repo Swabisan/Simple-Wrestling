@@ -1,3 +1,22 @@
+# STEPS
+insite directory `/test-client`
+```
+npm install
+yarn start
+```
+inside project directory /api
+```
+npm install
+node start
+```
+test database host-table
+```
+http://localhost:5000/host/getHostPage
+```
+
+
+
+
 ## Build Instructions
 #### to update dependencies
 

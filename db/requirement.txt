@@ -1,6 +1,0 @@
-npm install -g npx
-npx create-react-app test-client
-npm i nodemon -g
-yarn
-
-"proxy": "http://localhost:5000/"
