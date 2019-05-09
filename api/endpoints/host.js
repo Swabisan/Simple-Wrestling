@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 // Tournament Name
 // Date
@@ -52,24 +52,49 @@ tournamentlogos: '',
 numberofgyms: '',
 numberofmats: '',
 */
-router.get('/getHostPage', (req, res) => {
-  res.send({ express: 'testing Host a Tournament' });
+
+/*
+CREATE TABLE "tournaments"
+(
+  "id" SERIAL UNIQUE,
+  "tournament_name" varchar,
+  "location" varchar,
+  "admin_id" int
+);
+*/
+
+router.get('/getHostPage/:admin_id', (req, res) => {
+    res.send({ express: 'testing Host a Tournament of admin_id = ${req}', });
 });
 
 router.post('/postHostPage', (req, res) => {
-  console.log(req.body);
-  const tournamentname= req.body.tournamentname;
-  const date= req.body.date;
-  const level= req.body.level;
-  const style= req.body.style;
-  const location= req.body.location;
-  const tournamentflier= req.body.tournamentflier;
-  const tournamentlogos= req.body.tournamentlogos;
-  const numberofgyms= req.body.numberofgyms;
-  const numberofmats= req.body.numberofmats;
-  res.send(
-    `I received your POST request. This is what you sent me: `,
-  );
+    console.log(req.body);
+    const admin_id = req.body.admin_id;
+    const tournamentname = req.body.tournamentname;
+    const date = req.body.date;
+    const level = req.body.level;
+    const style = req.body.style;
+    const location = req.body.location;
+    const tournamentflier = req.body.tournamentflier;
+    const tournamentlogos = req.body.tournamentlogos;
+    const numberofgyms = req.body.numberofgyms;
+    const numberofmats = req.body.numberofmats;
+
+    const values = [tournamentname, location, admin_id];
+
+    db.addCoach(values)
+        .then(query => {
+            console.log(`sending response: ${JSON.stringify(query)}`, '\n')
+            res.json(query)
+        })
+        .catch(err => {
+            console.log(err.stack, '\n')
+            res.json(err)
+        })
+
+    res.send(
+        'Database saved: ${tournamentname}, ${location}, ${admin_id} ',
+    );
 });
 
 module.exports = router;

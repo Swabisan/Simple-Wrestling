@@ -17,6 +17,8 @@ const SEACH_FOR_TOURNAMENT_BY_Name = tournament => {
   `SELECT tournaments FROM tournament_name  `;
 };
 
+const CREATE_HOST_TOURNAMENT = `INSERT INTO tournaments (tournament_name, location, admin_id) VALUES ($1, $2, $3) RETURNING tournament_name`;
+
 module.exports = {
   CREATE_COACH,
   CREATE_ADMIN,
