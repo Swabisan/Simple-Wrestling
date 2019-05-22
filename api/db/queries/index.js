@@ -8,11 +8,11 @@ const SELECT_ALL_WRESTLERS = `SELECT * FROM wrestlers`;
 
 const DELETE_ALL_WRESTLERS = `DELETE FROM wrestlers;`;
 
-const CREATE_WRESTLER = `INSERT INTO wrestlers ("user_name","dob","weight","win","lost") VALUES ($1,$2,$3,$4,$5);`;
+const CREATE_WRESTLER = `INSERT INTO wrestlers ("name","dob","weight","win","loss") VALUES ($1,$2,$3,$4,$5);`;
 
 const SEARCH_FOR_EXISTING_WRESTLER = `SELECT EXISTS(SELECT * FROM WRESTLERS WHERE id = $1);`;
 
-const UPDATE_EXISTING_WRESTLER = `UPDATE wrestlers SET user_name = $1, dob = $2, weight= #4, win= $5, lost=$6 WHERE id=$7; `;
+const UPDATE_EXISTING_WRESTLER = `UPDATE wrestlers SET name = $1, dob = $2, weight= #4, win= $5, loss=$6 WHERE id=$7; `;
 
 const REMOVE_COACH_BY_ID = `DELETE FROM coaches WHERE id = $1;`;
 
