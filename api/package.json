@@ -35,6 +35,6 @@
     "pg-promise": "^8.6.4",
     "sequelize": "^5.8.1",
     "sequelize-cli": "^5.4.0",
-    "validator": "^10.11.0"
+    "validator": "^13.7.0"
   }
 }
